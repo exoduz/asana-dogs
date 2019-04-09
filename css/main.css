@@ -31,9 +31,26 @@ a:active {
 	color: var(--color-link-active);
 }
 
+/**
+ * Header
+ */
 .site-header {
   padding: 1rem;
   text-align: center;
+}
+
+.site-header__logo {
+	text-align: left;
+}
+
+.site-header__logo a:active,
+.site-header__logo a:hover {
+	border-bottom: transparent;
+}
+
+.site-header__logo__image {
+	height: 22px;
+	width: 112px;
 }
 
 .site-header__quote {
@@ -44,17 +61,11 @@ a:active {
   max-width: 460px;
 }
 
+/**
+ * Footer
+ */
 .site-footer {
   color: var(--color);
   font-family: var(--font-serif);
   text-align: center;
-}
-
-
-.site-header__logo {
-	text-align: left;
-}
-.site-header__logo__image {
-	height: 22px;
-	width: 112px;
 }
