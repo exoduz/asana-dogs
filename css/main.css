@@ -3,6 +3,8 @@
 :root {
   --font-sans: gordita, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-serif: Georgia, serif;
+  --font-color-main: #000;
+  --font-color-footer: #9ca6af;
   --color-secondary: #333;
   --color-link: #796eff;
   --color-link-active: #635ac7;
@@ -13,12 +15,14 @@
 }
 
 * {
+	margin: 0;
+	padding: 0;
 	font-family: var(--font-sans);
-	font-size: 16px;
 }
 
 body {
   margin: 0;
+  font-size: 16px;
 }
 
 h1,
@@ -92,7 +96,19 @@ a:active {
  * Footer
  */
 .site-footer {
-  color: var(--color);
+	margin-top: 50px;
+	padding: 1rem;
+	background: #151b26;
+  color: var(--font-color-footer);
   font-family: var(--font-serif);
-  text-align: center;
+  font-size: 14px;
+  text-align: right;
+}
+
+.site-footer a {
+	color: #fff;
+}
+.site-footer a:active,
+.site-footer a:hover {
+	border-bottom: 2px solid #fff;
 }
