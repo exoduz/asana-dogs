@@ -1,18 +1,20 @@
-* {
-	font-family: gordita, Helvetica Neue, Helvetica, sans-serif;
-	font-size: 16px;
-}
 
 /* Globals */
 :root {
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: gordita, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-serif: Georgia, serif;
   --color-secondary: #333;
-  --color-link: #635ac7;
+  --color-link: #796eff;
+  --color-link-active: #635ac7;
 
   font-family: var(--font-sans);
   font-weight: normal;
   line-height: 1.5;
+}
+
+* {
+	font-family: var(--font-sans);
+	font-size: 16px;
 }
 
 body {
@@ -21,11 +23,16 @@ body {
 
 a {
   color: var(--color-link);
+  text-decoration: none;
+}
+a:hover,
+a:active {
+	border-bottom: 2px solid var(--color-link-active);
+	color: var(--color-link-active);
 }
 
 .site-header {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -45,9 +52,9 @@ a {
 
 
 .site-header__logo {
-	background: url("https://luna1.co/0fc2ef.png") no-repeat transparent 50%;
-	background-size: contain;
-	display: block;
+	text-align: left;
+}
+.site-header__logo__image {
 	height: 22px;
 	width: 112px;
 }
