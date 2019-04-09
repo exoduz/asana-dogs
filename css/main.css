@@ -1,0 +1,53 @@
+* {
+	font-family: gordita, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+/* Globals */
+:root {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, serif;
+  --color-secondary: #333;
+  --color-link: #635ac7;
+
+  font-family: var(--font-sans);
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: var(--color-link);
+}
+
+.site-header {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.site-header__quote {
+  color: var(--color);
+  font-family: var(--font-serif);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 460px;
+}
+
+.site-footer {
+  color: var(--color);
+  font-family: var(--font-serif);
+  text-align: center;
+}
+
+
+.site-header__logo {
+	background: url("https://luna1.co/0fc2ef.png") no-repeat transparent 50%;
+	background-size: contain;
+	display: block;
+	height: 22px;
+	width: 112px;
+}
