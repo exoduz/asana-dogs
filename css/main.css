@@ -109,22 +109,24 @@ a:active {
 	border: 1px solid red;
 }
 
-.content div {
+.card {
+	flex-basis: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	border: 1px solid blue;
-	flex: 1 0 100%;
 }
 
 /* Mobile */
 @media (min-width: 768px) {
-	.content div {
-		flex: 1 0 49%;
+	.card {
+		flex-basis: 48%;
 	}
 }
 
 /* Tablet */
 @media (min-width: 1024px) {
-	.content div {
-		flex: 1 0 24%;
+	.card {
+		flex-basis: 23%;
 	}
 }
 
