@@ -106,14 +106,12 @@ a:active {
 	justify-content: space-between;
 	width: 80%;
 	margin: 0px auto;
-	border: 1px solid red;
 }
 
 .card {
 	flex-basis: 100%;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	border: 1px solid blue;
 }
 
 /* Mobile */
