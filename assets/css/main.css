@@ -136,6 +136,59 @@ a:active {
 	border-bottom: 0;
 }
 
+/* Modal */
+.modal {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 990;
+}
+
+.modal .modal__overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 995;
+	background: rgba(0,0,0,0.85);
+}
+
+.modal .modal__content {
+	z-index: 999;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-height: 90%;
+	overflow: auto;
+	background: #fff;
+	box-sizing: border-box;
+	padding: 20px;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+	border-radius: 4px;
+	width: 40%;
+}
+
+.modal .modal__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.5;
+  background: none;
+  border: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal .modal__close:hover {
+  opacity: 0.9;
+}
+
 /**
  * Footer
  */

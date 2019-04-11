@@ -45,6 +45,11 @@
 		}
 
 		for ( var i = 0; i < dogs.length; i++ ) {
+			// If image or source is missing, just move on.
+			if ( ! dogs[i].image || ! dogs[i].source ) {
+				continue;
+			}
+
 			var parentDiv      = document.getElementById( contentDiv )
 			var doggyDiv       = document.createElement( 'div' );
 			doggyDiv.className = 'card';
@@ -66,10 +71,35 @@
 	 * Check for image click.
 	 */
 	function onImageClick() {
-		document.querySelector( '.doggy-images' ).onclick = function( event ) {
-			event.preventDefault();
-			console.log( this.getAttribute( 'data-image' ) );
+		var el = document.querySelectorAll( '.doggy-images' );
+
+		for ( i = 0; i < el.length; i++ ) {
+			el[i].addEventListener( 'click', function( event ) {
+				event.preventDefault();
+				toggleModal();
+			} );
 		}
+	}
+
+	function toggleModal() {
+		var modal        = document.querySelector( '.modal' );
+		var currentState = modal.style.display;
+
+		if ( currentState === 'none' ) {
+			modal.style.display = 'block'
+			attachModalListeners( modal );
+		} else {
+			modal.style.display = 'none';
+			detachModalListeners( modal );
+		}
+	}
+
+	function attachModalListeners( el ) {
+		el.querySelector( '.modal__close' ).addEventListener( 'click', toggleModal );
+	}
+
+	function detachModalListeners( el ) {
+		el.querySelector( '.modal__close' ).removeEventListener( 'click', toggleModal );
 	}
 
 	load();
