@@ -132,6 +132,10 @@ a:active {
 	width: 100%;
 }
 
+.card a:hover {
+	border-bottom: 0;
+}
+
 /**
  * Footer
  */
