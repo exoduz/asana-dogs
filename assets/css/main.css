@@ -130,6 +130,10 @@ a:active {
 	}
 }
 
+.card img {
+	width: 100%;
+}
+
 /**
  * Footer
  */
