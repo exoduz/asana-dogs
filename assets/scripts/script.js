@@ -14,7 +14,7 @@
 		}
 
 		// Check for image clicks.
-		checkClick();
+		onImageClick();
 	}
 
 	/**
@@ -53,11 +53,19 @@
 		}
 	}
 
+	/**
+	 * Output individual dog data for card.
+	 * @param  {Object} dog The data for the dog.
+	 * @return {String}     HTML output.
+	 */
 	function outputDoggyHtml( dog ) {
 		return '<a class="doggy-images" data-image="' + dog.image + '" href="' + dog.source + '" target="_blank"><img src="' + dog.image + '" alt="Doggy Image" />';
 	}
 
-	function checkClick() {
+	/**
+	 * Check for image click.
+	 */
+	function onImageClick() {
 		document.querySelector( '.doggy-images' ).onclick = function( event ) {
 			event.preventDefault();
 			console.log( this.getAttribute( 'data-image' ) );
