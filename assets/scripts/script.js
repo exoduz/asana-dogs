@@ -2,14 +2,19 @@
 ( function() {
 	var contentDiv = 'content';
 
-	// Data needs to be an array and have data.
-	if ( Array.isArray( data ) && data.dogs && data.dogs.length === 0 ) {
-		// No data found, just output an error message.
-		var message = 'There is no data.';
+	function load() {
+		// Data needs to be an array and have data.
+		if ( Array.isArray( data ) && data.dogs && data.dogs.length === 0 ) {
+			// No data found, just output an error message.
+			var message = 'There is no data.';
 
-		outputWarning( contentDiv, message );
-	} else {
-		outputDoggyCards( data.dogs );
+			outputWarning( contentDiv, message );
+		} else {
+			outputDoggyCards( data.dogs );
+		}
+
+		// Check for image clicks.
+		checkClick();
 	}
 
 	/**
@@ -49,6 +54,15 @@
 	}
 
 	function outputDoggyHtml( dog ) {
-		return '<a href="' + dog.source + '" target="_blank"><img src="' + dog.image + '" alt="Doggy Image" />';
+		return '<a class="doggy-images" data-image="' + dog.image + '" href="' + dog.source + '" target="_blank"><img src="' + dog.image + '" alt="Doggy Image" />';
 	}
+
+	function checkClick() {
+		document.querySelector( '.doggy-images' ).onclick = function( event ) {
+			event.preventDefault();
+			console.log( this.getAttribute( 'data-image' ) );
+		}
+	}
+
+	load();
 } )();
