@@ -64,7 +64,7 @@
 	 * @return {String}     HTML output.
 	 */
 	function outputDoggyHtml( dog ) {
-		return '<a class="doggy-images" data-image="' + dog.image + '" href="' + dog.source + '" target="_blank"><img src="' + dog.image + '" alt="Doggy Image" />';
+		return '<a class="doggy-images" href="' + dog.source + '" target="_blank"><img src="' + dog.image + '" alt="Doggy Image" data-image="' + dog.image + '" /></a>';
 	}
 
 	/**
@@ -76,28 +76,58 @@
 		for ( i = 0; i < el.length; i++ ) {
 			el[i].addEventListener( 'click', function( event ) {
 				event.preventDefault();
-				toggleModal();
+				console.log( event.target );
+				toggleModal( event.target );
 			} );
 		}
 	}
 
-	function toggleModal() {
+	/**
+	 * Toggle the modal.
+	 */
+	function toggleModal( target ) {
 		var modal        = document.querySelector( '.modal' );
+		var modalContentDiv     = document.querySelector( '.modal__content' );
 		var currentState = modal.style.display;
 
+		// TODO: Add click outsdie close.
+		// TODO: Update URL so that it's bookmarkable.
 		if ( currentState === 'none' ) {
-			modal.style.display = 'block'
+			// Open modal.
+			document.body.className = 'noscroll';
+			modal.style.display     = 'block';
+
+			// Insert image to modal.
+			var doggyImageDiv       = document.createElement( 'div' );
+			doggyImageDiv.className = 'modal__doggy-image';
+			doggyImageDiv.innerHTML = '<img src="' + event.target.dataset.image + '" alt="Doggy Image" />';
+			modalContentDiv.append( doggyImageDiv );
+
 			attachModalListeners( modal );
 		} else {
+			// Close modal.
+			document.body.className = document.body.className.replace( 'noscroll', '' );
 			modal.style.display = 'none';
+
+			// Remove previously appended image.
+			document.querySelector( '.modal__doggy-image' ).remove();
+
 			detachModalListeners( modal );
 		}
 	}
 
+	/**
+	 * Add click event listerenrs to the element.
+	 * @param  {String} el The HTML element.
+	 */
 	function attachModalListeners( el ) {
 		el.querySelector( '.modal__close' ).addEventListener( 'click', toggleModal );
 	}
 
+	/**
+	 * Remove click event listerenrs to the element.
+	 * @param  {String} el The HTML element.
+	 */
 	function detachModalListeners( el ) {
 		el.querySelector( '.modal__close' ).removeEventListener( 'click', toggleModal );
 	}

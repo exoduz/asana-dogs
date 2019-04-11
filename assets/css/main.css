@@ -25,6 +25,11 @@ body {
   font-size: 16px;
 }
 
+body.noscroll {
+	position: static;
+	overflow: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -168,17 +173,21 @@ a:active {
 	background: #fff;
 	box-sizing: border-box;
 	padding: 20px;
+	padding-top: 40px;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.7);
 	border-radius: 4px;
 	width: 40%;
 }
 
+.modal .modal__content img {
+	width: 100%;
+}
+
 .modal .modal__close {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 15px;
+  top: 15px;
   cursor: pointer;
-  font-size: 18px;
   opacity: 0.5;
   background: none;
   border: none;
