@@ -111,7 +111,21 @@ a:active {
 
 .content div {
 	border: 1px solid blue;
-	flex: 1 0 24%;
+	flex: 1 0 100%;
+}
+
+/* Mobile */
+@media (min-width: 768px) {
+	.content div {
+		flex: 1 0 49%;
+	}
+}
+
+/* Tablet */
+@media (min-width: 1024px) {
+	.content div {
+		flex: 1 0 24%;
+	}
 }
 
 /**
