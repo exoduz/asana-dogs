@@ -13,7 +13,7 @@
 	}
 
 	/**
-	 * Output a message.
+	 * Output a warning message.
 	 *
 	 * @param  {String} div     The parent div.
 	 * @param  {String} message The warning message.
@@ -27,7 +27,7 @@
 	}
 
 	/**
-	 * Output the dog cards.
+	 * Output the doggy cards.
 	 * @param  {Array} data An array of dogs.
 	 */
 	function outputDoggyCards( dogs ) {
@@ -40,8 +40,8 @@
 		}
 
 		for ( var i = 0; i < dogs.length; i++ ) {
-			var parentDiv  = document.getElementById( contentDiv )
-			var doggyDiv = document.createElement( 'div' );
+			var parentDiv      = document.getElementById( contentDiv )
+			var doggyDiv       = document.createElement( 'div' );
 			doggyDiv.className = 'card';
 			doggyDiv.innerHTML = outputDoggyHtml( dogs[i] );
 			parentDiv.appendChild( doggyDiv );
