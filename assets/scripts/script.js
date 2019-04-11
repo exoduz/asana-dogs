@@ -76,19 +76,20 @@
 		for ( i = 0; i < el.length; i++ ) {
 			el[i].addEventListener( 'click', function( event ) {
 				event.preventDefault();
-				console.log( event.target );
-				toggleModal( event.target );
+				toggleModal( event.target.dataset.image );
 			} );
 		}
 	}
 
 	/**
 	 * Toggle the modal.
+	 *
+	 * @param {String} image The image to output.
 	 */
-	function toggleModal( target ) {
-		var modal        = document.querySelector( '.modal' );
-		var modalContentDiv     = document.querySelector( '.modal__content' );
-		var currentState = modal.style.display;
+	function toggleModal( image ) {
+		var modal           = document.querySelector( '.modal' );
+		var modalContentDiv = document.querySelector( '.modal__content' );
+		var currentState    = modal.style.display;
 
 		// TODO: Add click outsdie close.
 		// TODO: Update URL so that it's bookmarkable.
@@ -98,9 +99,11 @@
 			modal.style.display     = 'block';
 
 			// Insert image to modal.
+			// Would be nice if we can implement a resize of doggy image
+			// based on window for the image rather than scrolling.
 			var doggyImageDiv       = document.createElement( 'div' );
 			doggyImageDiv.className = 'modal__doggy-image';
-			doggyImageDiv.innerHTML = '<img src="' + event.target.dataset.image + '" alt="Doggy Image" />';
+			doggyImageDiv.innerHTML = '<img src="' + image + '" alt="Doggy Image" />';
 			modalContentDiv.append( doggyImageDiv );
 
 			attachModalListeners( modal );
@@ -132,5 +135,15 @@
 		el.querySelector( '.modal__close' ).removeEventListener( 'click', toggleModal );
 	}
 
+	/**
+	 * Surprise!
+	 */
+	function easterEgg() {
+		document.querySelector( '.site-header__title' ).addEventListener( 'click', function( event ) {
+			toggleModal( 'https://media0.giphy.com/media/Cbx4j02mlj320/giphy.gif?cid=790b76115cabf1b7792f4e70513168f0' );
+		} );
+	}
+
 	load();
+	easterEgg();
 } )();
